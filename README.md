@@ -4,35 +4,49 @@ A RESTful Product Management API built with Spring Boot. This project demonstrat
 
 ## Features
 
-### Task 1: REST API Development
+## Task 1 – REST API Development
 
-* Spring Boot REST API
-* CRUD operations for Products
-* Layered architecture:
+Implemented CRUD operations for Product resource.
 
-  * Controller
-  * Service
-  * Repository
-  * DTO
-  * Entity
-* Request validation using Jakarta Validation
-* Proper HTTP status codes
+Features:
+- Create Product
+- Get All Products
+- Get Product By ID
+- Update Product
+- Delete Product
 
-### Task 2: Database Integration & Migrations
+Technologies:
+- Spring Boot
+- Spring Data JPA
+- Validation
+- H2 Database
 
-* Spring Data JPA
-* H2 In-Memory Database
-* Flyway Database Migrations
-* Versioned SQL scripts
-* Sample seed data
+## Task 2 – Database Integration & Flyway
 
-### Task 3: Unit Testing & Logging
+Implemented:
+- H2 Database
+- Flyway migrations
+- Versioned SQL scripts
+- Sample data seeding
 
-* JUnit 5
-* Mockito
-* Service layer unit tests
-* SLF4J Logging
-* Test reports via Maven Surefire
+Migration Files:
+- V1__Create_product_table.sql
+- V2__Insert_sample_data.sql
+
+## Task 3 – Unit Testing & Logging
+
+Implemented:
+- JUnit 5
+- Mockito
+- Service layer tests
+- SLF4J Logging
+
+Test Coverage:
+- createProduct()
+- getAllProducts()
+- getProductById()
+- updateProduct()
+- deleteProduct()
 
 ---
 
