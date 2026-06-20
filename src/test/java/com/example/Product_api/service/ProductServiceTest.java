@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 class ProductServiceTest {
@@ -89,6 +90,46 @@ class ProductServiceTest {
 
         verify(repository, times(1))
                 .findById(1L);
+    }
+
+        @Test
+    void updateProduct_ShouldUpdateExistingProduct() {
+
+        Product existingProduct =
+                new Product("Laptop",
+                        "Gaming Laptop",
+                        1200.0);
+
+        ProductDTO updatedDto =
+                new ProductDTO("Laptop Pro",
+                        "Updated Laptop",
+                        1500.0);
+
+        when(repository.findById(1L))
+                .thenReturn(Optional.of(existingProduct));
+
+        when(repository.save(any(Product.class)))
+                .thenAnswer(invocation -> invocation.getArgument(0));
+
+        Optional<Product> result =
+                service.updateProduct(1L, updatedDto);
+
+        assertTrue(result.isPresent());
+
+        assertEquals("Laptop Pro",
+                result.get().getName());
+
+        assertEquals("Updated Laptop",
+                result.get().getDescription());
+
+        assertEquals(1500.0,
+                result.get().getPrice());
+
+        verify(repository, times(1))
+                .findById(1L);
+
+        verify(repository, times(1))
+                .save(any(Product.class));
     }
 
     @Test

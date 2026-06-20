@@ -228,7 +228,7 @@ Expected sample products:
 ## Run Unit Tests
 
 ```bash
-mvnw.cmd test
+./mvnw test
 ```
 
 Expected:
@@ -259,7 +259,7 @@ Expected log:
 INFO ProductService : Fetching all products
 ```
 
-Create Product:
+Update Product:
 
 ```bash
 curl -X PUT http://localhost:8080/api/products/1 \
@@ -270,8 +270,8 @@ curl -X PUT http://localhost:8080/api/products/1 \
 Expected log:
 
 ```text
-INFO ProductService : Creating product: Phone
-INFO ProductService : Product created successfully with ID: 4
+INFO ProductService : Updating product with ID: 1
+INFO ProductService : Product updated successfully: 1
 ```
 
 ---

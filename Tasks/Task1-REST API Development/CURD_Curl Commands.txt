@@ -1,0 +1,61 @@
+Task 1 Verification (CRUD API):
+
+Get All Products:
+curl http://localhost:8080/api/products
+
+Expected Result:
+Returns all products in JSON format.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Get Product By ID
+curl http://localhost:8080/api/products/1
+
+Expected Result:
+Returns product with ID = 1.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Create Product:
+
+CMD:
+curl -X POST http://localhost:8080/api/products ^
+-H "Content-Type: application/json" ^
+-d "{\"name\":\"Laptop\",\"description\":\"Gaming Laptop\",\"price\":1200}"
+
+Git Bash:
+curl -X POST http://localhost:8080/api/products \
+-H "Content-Type: application/json" \
+-d '{"name":"Laptop","description":"Gaming Laptop","price":1200}'
+
+Expected Result:
+Returns created product with generated ID.
+
+-------------------------------------------------------------------------------------------------------------------
+
+Update Product:
+
+CMD:
+curl -X PUT http://localhost:8080/api/products/1 ^
+-H "Content-Type: application/json" ^
+-d "{\"name\":\"Laptop Pro\",\"description\":\"Updated Laptop\",\"price\":1500}"
+
+Git Bash:
+curl -X PUT http://localhost:8080/api/products/1 \
+-H "Content-Type: application/json" \
+-d '{"name":"Laptop Pro","description":"Updated Laptop","price":1500}'
+
+Expected Result:
+Updates existing product.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Delete Product:
+curl -X DELETE http://localhost:8080/api/products/1
+
+Expected Result:
+
+Returns:
+204 No Content
+
+----------------------------------------------------------------------------------------------------------------
